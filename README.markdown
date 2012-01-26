@@ -7,20 +7,20 @@ Requirements
 Usage
 =======================
 
-copy file into correct directory.
+install via spark
 
-    $ cp config/template.php application/config/
-    $ cp libraries/template.php application/libraries/
+    $ php tools/spark install -v1.0.0 codeigniter-template
+
+load template library
+
+    // Load the spark
+    $this->load->spark('codeigniter-template/1.0.0');
 
 you can reference layout example file (template/layout.php)
 
 Set default template layout, put layout file into application/views directory
 
     $config['template_layout'] = 'template/layout';
-
-load template library
-
-    $this->load->library("template");
 
 add css
 
