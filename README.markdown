@@ -12,9 +12,9 @@ copy file into correct directory.
     $ cp config/template.php application/config/
     $ cp libraries/template.php application/libraries/
 
-modified your template configuration from application/config/template.php
+you can reference layout example file (template/layout.php)
 
-Set default template layout, put layout into application/views directory
+Set default template layout, put layout file into application/views directory
 
     $config['template_layout'] = 'template/layout';
 
