@@ -4,7 +4,7 @@
  * Layout library
  *
  * @author Bo-Yi Wu <appleboy.tw@gmail.com>
- * @see http://d.hatena.ne.jp/localdisk/20110413/1302667273 (原型)
+ * @see http://d.hatena.ne.jp/localdisk/20110413/1302667273 (reference)
  */
 class Template {
 
