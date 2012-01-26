@@ -275,8 +275,7 @@ class Template {
         $this->set('scripts_header', implode("\r\n", $this->_scripts_header) . "\r\n");
         $this->set('scripts_footer', implode("\r\n", $this->_scripts_footer) . "\r\n");
         $this->set('content', $this->_ci->load->view($view, $data, TRUE));
-        $this->set('lang',str_replace('_', '-', $this->_ci->config->item('language')));
-        $this->set('meta_charset',strtolower($this->_ci->config->item('charset')));
+
         // handle site title
         $this->_data['site_title'] = '';
         if (count($this->_title_segments) > 0)
