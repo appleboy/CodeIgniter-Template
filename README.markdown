@@ -9,7 +9,7 @@ Usage
 
 install via spark
 
-    $ php tools/spark install -v1.0.0 codeigniter-template
+    $ php tools/spark install -v1.0.1 codeigniter-template
 
 load template library
 
