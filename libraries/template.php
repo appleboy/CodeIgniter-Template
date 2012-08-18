@@ -1,38 +1,39 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Layout library
+ * CodeIgniter Template Layout library
  *
- * @author Bo-Yi Wu <appleboy.tw@gmail.com>
- * @see http://d.hatena.ne.jp/localdisk/20110413/1302667273 (reference)
+ * @package     CodeIgniter
+ * @author      Bo-Yi Wu <appleboy.tw@gmail.com>
+ * @link        https://github.com/appleboy/CodeIgniter-Template
  */
 class Template
 {
     /**
      * ci
      *
-     * @var Codeigniter
+     * @param instance object
      */
     private $_ci;
 
     /**
      * data
      *
-     * @var array
+     * @param array
      */
     private $_data = array();
 
     /**
      * layout
      *
-     * @var string
+     * @param string
      */
     private $_layout;
 
     /**
      * Scripts
      *
-     * @var string
+     * @param array
      */
     private $_scripts_header = array();
     private $_scripts_footer = array();
@@ -40,42 +41,42 @@ class Template
     /**
      * Styles
      *
-     * @var string
+     * @param array
      */
     private $_styles = array();
 
     /**
      * Site title
      *
-     * @var string
+     * @param string
      */
     private $_base_title;
 
     /**
      * Site title segmen
      *
-     * @var array
+     * @param array
      */
     private $_title_segments = array();
 
     /**
      * Site title separator
      *
-     * @var string
+     * @param string
      */
     private $_title_separator;
 
     /**
      * Site meta tag
      *
-     * @var array
+     * @param array
      */
     private $_meta_tags = array();
 
     /**
      * constructor
      *
-     * @param string $layout
+     * @param string $config
      */
     public function __construct($config = array())
     {
@@ -244,8 +245,8 @@ class Template
      *
      * Generates an javascript heading tag. First param is the data.
      *
-     * @access  public
-     * @param   string
+     * @access private
+     * @param  string
      * @return string
      */
     private function script_tag($src = NULL)
@@ -260,9 +261,9 @@ class Template
     /**
      * render
      *
-     * @param  String  $view
+     * @param  string  $view
      * @param  array   $data
-     * @param  Boolean $return
+     * @param  boolean $return
      * @return string
      */
     public function render($view, $data = NULL, $return = FALSE)
