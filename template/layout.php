@@ -4,12 +4,12 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
-<!--[if gt IE 8]><!--><html class="no-js" lang="zh-tw"> <!--<![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="<?php echo $lang; ?>"> <!--<![endif]-->
 
 <head>
-<meta charset="utf-8">
+<meta charset="<?php echo $meta_charset; ?>">
 <title><?php echo $site_title; ?></title>
-<meta name="description" content="<?php echo $site_description;?>" />
+<meta name="description" content="<?php echo $site_description; ?>" />
 <meta name="keywords" content="<?php echo $site_keywords; ?>" />
 <?php echo $meta_tag; ?>
 <?php echo $styles; ?>

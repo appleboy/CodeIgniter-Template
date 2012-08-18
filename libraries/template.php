@@ -219,8 +219,9 @@ class Template
             'type' => 'text/css'
         );
 
-        if(!empty($media))
+        if (!empty($media)) {
             $link['media'] = $media;
+        }
 
         $this->_styles[] = link_tag($link);
     }
@@ -234,10 +235,11 @@ class Template
      */
     public function add_js($src, $is_footer = FALSE)
     {
-        if(!$is_footer)
+        if (!$is_footer) {
             $this->_scripts_header[] = $this->script_tag($src);
-        else
+        } else {
             $this->_scripts_footer[] = $this->script_tag($src);
+        }
     }
 
     /**
@@ -268,10 +270,15 @@ class Template
      */
     public function render($view, $data = NULL, $return = FALSE)
     {
+        // merge template variable
+        $data = array_merge($data, $this->_data);
+
         $this->set('meta_tag', implode("\r\n", $this->_meta_tags) . "\r\n");
         $this->set('styles', implode("\r\n", $this->_styles) . "\r\n");
         $this->set('scripts_header', implode("\r\n", $this->_scripts_header) . "\r\n");
         $this->set('scripts_footer', implode("\r\n", $this->_scripts_footer) . "\r\n");
+        $this->set('lang', str_replace('_', '-', $this->_ci->config->item('language')));
+        $this->set('meta_charset', strtolower($this->_ci->config->item('charset')));
         $this->set('content', $this->_ci->load->view($view, $data, TRUE));
 
         // handle site title
