@@ -268,7 +268,7 @@ class Template
      * @param  boolean $return
      * @return string
      */
-    public function render($view, $data = NULL, $return = FALSE)
+    public function render($view, $data = array(), $return = FALSE)
     {
         // merge template variable
         $data = array_merge($data, $this->_data);
