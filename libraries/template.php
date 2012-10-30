@@ -270,6 +270,11 @@ class Template
      */
     public function render($view, $data = array(), $return = FALSE)
     {
+        // check $data is array()
+        if (!is_array($data)) {
+            $data = array();
+        }
+
         // merge template variable
         $data = array_merge($data, $this->_data);
 
