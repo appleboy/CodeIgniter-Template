@@ -81,6 +81,7 @@ class Template
     public function __construct($config = array())
     {
         $this->_ci = get_instance();
+        $this->_ci->load->helper('html');
 
         log_message('debug', 'Tempalte Class Initialized');
 
@@ -268,8 +269,13 @@ class Template
      * @param  boolean $return
      * @return string
      */
-    public function render($view, $data = NULL, $return = FALSE)
+    public function render($view, $data = array(), $return = FALSE)
     {
+        // check $data is array()
+        if (!is_array($data)) {
+            $data = array();
+        }
+
         // merge template variable
         $data = array_merge($data, $this->_data);
 
