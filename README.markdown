@@ -4,6 +4,11 @@ Requirements
 * CodeIgniter 2.0.0+
 * PHP 5.2.0+
 
+Install via sparks
+=======================
+
+    $ php tools/spark install -v1.0.2 codeigniter-template
+
 Usage
 =======================
 
