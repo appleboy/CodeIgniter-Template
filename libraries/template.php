@@ -81,6 +81,7 @@ class Template
     public function __construct($config = array())
     {
         $this->_ci = get_instance();
+        $this->_ci->load->helper('html');
 
         log_message('debug', 'Tempalte Class Initialized');
 
