@@ -9,12 +9,12 @@ Usage
 
 install via spark
 
-    $ php tools/spark install -v1.0.1 codeigniter-template
+    $ php tools/spark install -v1.0.2 codeigniter-template
 
 load template library
 
     // Load the spark
-    $this->load->spark('codeigniter-template/1.0.0');
+    $this->load->spark('codeigniter-template/1.0.2');
 
 you can reference layout example file (template/layout.php)
 
