@@ -23,4 +23,3 @@
     <?php echo $scripts_footer; ?>
 </body>
 </html>
-
