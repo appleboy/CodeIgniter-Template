@@ -138,7 +138,11 @@ class Template
      */
     public function add_meta_tag($name, $value, $key = "name")
     {
-        $this->_meta_tags[] = '<meta ' . $key . '="' . $name . '" content="' . $value . '" />';
+        if ($name == 'canonical') {
+            $this->_meta_tags[] = '<link rel="canonical" href="' . $value . '" />';
+        } else {
+            $this->_meta_tags[] = '<meta ' . $key . '="' . $name . '" content="' . $value . '" />';
+        }
 
         return $this;
     }
