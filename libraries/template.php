@@ -131,6 +131,42 @@ class Template
     }
 
     /**
+     * Overloading __set() is run when writing data to inaccessible properties.
+     */
+    public function __set($name, $value)
+    {
+        $this->_data[$name] = $value;
+    }
+
+    /**
+     * Overloading __get() is utilized for reading data from inaccessible properties.
+     */
+    public function __get($name)
+    {
+        if (array_key_exists($name, $this->_data)) {
+            return $this->_data[$name];
+        }
+
+        return null;
+    }
+
+    /**
+     * Overloading __isset() is triggered by calling isset() or empty() on inaccessible properties.
+     */
+    public function __isset($name)
+    {
+        return isset($this->_data[$name]);
+    }
+
+    /**
+     * Overloading __unset() is invoked when unset() is used on inaccessible properties.
+     */
+    public function __unset($name)
+    {
+        unset($this->_data[$name]);
+    }
+
+    /**
      * Add a meta tag
      *
      * @param string $name
