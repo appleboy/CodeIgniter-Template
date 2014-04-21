@@ -1,16 +1,13 @@
-Requirements
-=======================
+# Requirements
 
 * CodeIgniter 2.0.0+
 * PHP 5.2.0+
 
-Install via sparks
-=======================
+# Install via sparks
 
-    $ php tools/spark install -v1.0.2 codeigniter-template
+    $ php tools/spark install -v1.0.3 codeigniter-template
 
-Usage
-=======================
+# Usage
 
 copy file into correct directory.
 
@@ -19,19 +16,19 @@ copy file into correct directory.
 
 you can reference layout example file (template/layout.php)
 
-Set default template layout, put layout file into application/views directory
+Set default template layout and put layout file into `application/views` directory
 
     $config['template_layout'] = 'template/layout';
 
-load template library
+Initialize template library
 
     $this->load->library("template");
 
-add css
+add css path
 
     $this->template->add_css("http://xxxx/index.js", "screen");
 
-add javascript (put the file on bottom if the second parameter is set true, default is false)
+add javascript path(put the file on bottom if the second parameter is set true, default is false)
 
     $this->template->add_js("/asset/js/index.js", TRUE);
 
@@ -55,8 +52,7 @@ render output (return output data if the second parameter is set true)
     $this->template->render("index");
 
 
-Copyright
-=======================
+# Copyright
 
-Copyright (C) 2012 Bo-Yi Wu ( appleboy AT gmail.com )
+Copyright (C) 2014 Bo-Yi Wu ( appleboy AT gmail.com )
 
