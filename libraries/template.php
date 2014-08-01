@@ -300,6 +300,26 @@ class Template
 
         return "";
     }
+    
+    /**
+     * script
+     *
+     * add script of javascript. First param is the data.
+     *
+     * @param string  $src
+     * @param boolean $is_footer
+     */
+    public function script($script, $is_footer = FALSE){
+        $tag_open = "<script type='text/javascript'>\n/*<![CDATA[*/";
+        $tag_close = "/*]]>*/\n</script>";
+
+        $script = $tag_open.$script.$tag_close;
+        if (!$is_footer) {
+            $this->_scripts_header[] = $script;
+        }else{
+            $this->_scripts_footer[] = $script;
+        }
+    }
 
     /**
      * render
