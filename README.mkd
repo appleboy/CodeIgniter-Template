@@ -5,7 +5,7 @@
 
 # Install via sparks
 
-    $ php tools/spark install -v1.0.3 codeigniter-template
+    $ php tools/spark install -v1.0.4 codeigniter-template
 
 # Usage
 
