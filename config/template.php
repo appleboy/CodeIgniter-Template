@@ -19,7 +19,7 @@ $config['template_css'] = array(
  * load javascript on footer: TRUE
  */
 $config['template_js'] = array(
-    'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' => FALSE,
+    'https://code.jquery.com/jquery-2.1.1.min.js' => FALSE,
     '/assets/js/index.js' => TRUE
 );
 
