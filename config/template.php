@@ -4,7 +4,7 @@
  * default layout
  * Location: application/views/
  */
-$config['template_layout'] = 'template/layout';
+$config['template_layout'] = '../template/layout';
 
 /**
  * default css
