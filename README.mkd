@@ -69,5 +69,6 @@ render output (return output data if the second parameter is set true)
 # Copyright
 
 Copyright (C) 2014 Bo-Yi Wu ( appleboy AT gmail.com )
+
 Copyright (C) 2015 Romdoni Agung Purbayanto
 
