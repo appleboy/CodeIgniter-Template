@@ -7,11 +7,11 @@
 <!--[if gt IE 8]><!--><html class="no-js" lang="<?php echo $lang; ?>"> <!--<![endif]-->
 
 <head>
-<meta charset="<?php echo $meta_charset; ?>">
-<title><?php echo $site_title; ?></title>
-<meta name="description" content="<?php echo $site_description; ?>" />
-<meta name="keywords" content="<?php echo $site_keywords; ?>" />
+
 <?php echo $meta_tag; ?>
+
+<title><?php echo $site_title; ?></title>
+
 <?php echo $styles; ?>
 <!-- JS -->
 <?php echo $scripts_header; ?>

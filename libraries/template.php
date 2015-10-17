@@ -104,7 +104,7 @@ class Template
             }
 
             if ($key == 'template_css' AND $val != '') {
-                //add css
+                // add css
                 foreach ($config['template_css'] as $href => $media) {
                     $this->add_css($href, $media);
                 }
@@ -112,7 +112,7 @@ class Template
             }
 
             if ($key == 'template_js' AND $val != '') {
-                //add js
+                // add js
                 foreach ($config['template_js'] as $src => $value) {
                     $this->add_js($src, $value);
                 }
@@ -120,12 +120,21 @@ class Template
             }
 
             if ($key == 'template_vars' AND $val != '') {
-                //add var
+                // add var
                 foreach ($config['template_vars'] as $key => $val) {
                     $this->set($key, $val);
                 }
                 continue;
             }
+
+            if ($key == 'template_meta' AND $val != '') {
+                // add meta
+                foreach ($config['template_meta'] as $key => $value) {
+                    $this->add_meta_tag($value['name'], $value['content'], $value['key']);
+                }
+                continue;
+            }
+
             $this->{'_'.$key} = $val;
         }
     }
@@ -181,6 +190,86 @@ class Template
         }
 
         return $this;
+    }
+
+    /**
+     * Add a meta keywords
+     *
+     * @param string $content
+     */
+    public function add_meta_keywords($content = "")
+    {
+        $meta_tag = '<meta name="keywords" content="' . $content . '" />';
+        $found = FALSE;
+
+        $number_meta = count($this->_meta_tags);
+        for ($i = 0; $i < $number_meta; $i++)
+        {
+            $needle = array("\"", "'", "`"); // needle
+            $replace = array("", "", ""); // replace string
+
+            // replace string by needle
+            $meta = str_replace($needle, $replace, $this->_meta_tags[$i]);
+
+            // looking for name=keywords
+            if (preg_match('/name=keywords/', $meta))
+            {
+                $found = TRUE; // set found as TRUE
+
+                // replace value
+                $this->_meta_tags[$i] = $meta_tag;
+                break;
+            }
+        }
+
+        /*
+        * when string is not found in _meta_tags
+        * we push new string into _meta_tags
+        */
+        if (!$found)
+        {
+            $this->_meta_tags[] = $meta_tag;
+        }
+    }
+
+    /**
+     * Add a meta description
+     *
+     * @param string $content
+     */
+    public function add_meta_description($content = "")
+    {
+        $meta_tag = '<meta name="description" content="' . $content . '" />';
+        $found = FALSE;
+
+        $number_meta = count($this->_meta_tags);
+        for ($i = 0; $i < $number_meta; $i++)
+        {
+            $needle = array("\"", "'", "`"); // needle
+            $replace = array("", "", ""); // replace string
+
+            // replace string by needle
+            $meta = str_replace($needle, $replace, $this->_meta_tags[$i]);
+
+            // looking for name=keywords
+            if (preg_match('/name=description/', $meta))
+            {
+                $found = TRUE; // set found as TRUE
+
+                // replace value
+                $this->_meta_tags[$i] = $meta_tag;
+                break;
+            }
+        }
+
+        /*
+        * when string is not found in _meta_tags
+        * we push new string into _meta_tags
+        */
+        if (!$found)
+        {
+            $this->_meta_tags[] = $meta_tag;
+        }
     }
 
     /**
@@ -265,6 +354,41 @@ class Template
         }
 
         $this->_styles[] = link_tag($link);
+    }
+
+    /**
+     * remove css
+     *
+     * @param string $path
+     * @return void
+     */
+    public function remove_css($href = NULL, $media = 'screen')
+    {
+        if ($href)
+        {
+            $href = ltrim($href, "/");
+            $link = array(
+                'href' => $href,
+                'rel' => 'stylesheet',
+                'type' => 'text/css'
+            );
+
+            if (!empty($media)) {
+                $link['media'] = $media;
+            }
+
+            $css = link_tag($link);
+
+            $number_style = count($this->_styles);
+            for ($i = 0; $i < $number_style; $i++)
+            {
+                if ($this->_styles[$i] == $css)
+                {
+                    unset($this->_styles[$i]);
+                    break;
+                }
+            }
+        }
     }
 
     /**

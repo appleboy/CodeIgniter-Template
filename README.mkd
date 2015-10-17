@@ -18,7 +18,7 @@ you can reference layout example file (template/layout.php)
 
 Set default template layout and put layout file into `application/views` directory
 
-    $config['template_layout'] = 'template/layout';
+    $config['template_layout'] = '../template/layout';
 
 Initialize template library
 
@@ -28,18 +28,32 @@ add css path
 
     $this->template->add_css("http://xxxx/index.js", "screen");
 
-add javascript path(put the file on bottom if the second parameter is set true, default is false)
+add javascript path (put the file on bottom if the second parameter is set true, default is false)
 
     $this->template->add_js("/asset/js/index.js", TRUE);
+
+add script (put the script on bottom if the second parameter is set true, default is false)
+    
+    $script = <<<EOT
+    $(document).ready(function () {  
+        console.log("ready");
+    });
+    EOT;
+    $this->template->script($script, TRUE);
 
 add meta tag
 
     $this->template->add_meta_tag("og:title", "Test Title", 'property');
     // it will output
     <meta property="og:title" content="Test Title" />
-    $this->template->add_meta_tag("keywords", "some keywords");
-    // it will output
-    <meta name="keywords" content="some keywords" />
+    
+add or change meta description
+    
+    $this->template->add_meta_description("Your site description");
+
+add or change meta keywords
+    
+    $this->template->add_meta_keywords("your site keywords");
 
 add title segment
 
@@ -55,4 +69,5 @@ render output (return output data if the second parameter is set true)
 # Copyright
 
 Copyright (C) 2014 Bo-Yi Wu ( appleboy AT gmail.com )
+Copyright (C) 2015 Romdoni Agung Purbayanto
 
